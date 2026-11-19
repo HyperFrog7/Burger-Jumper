@@ -16,13 +16,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 startPos;
     bool isGrounded;
 
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
-        startPos = transform.position;
-    }
+        void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+            anim = GetComponent<Animator>();
+            sr = GetComponent<SpriteRenderer>();
+            startPos = transform.position;
+            GetComponent<Collider2D>().sharedMaterial = new PhysicsMaterial2D { friction = 0f, bounciness = 0f };
+        }
 
     void Update()
     {

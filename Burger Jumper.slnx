@@ -1,5 +1,3 @@
 ﻿<Solution>
   <Project Path="Assembly-CSharp.csproj" />
-  <Project Path="com.lachee.discordrpc.runtime.csproj" />
-  <Project Path="com.lachee.discordrpc.editor.csproj" />
 </Solution>

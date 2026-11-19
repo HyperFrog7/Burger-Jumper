@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DiscordStatus : MonoBehaviour
 {
-    public string applicationId = "PASTE_APPLICATION_ID_HERE";
+    public string applicationId = "1572800044288049182";
 
     static DiscordStatus instance;
     DiscordRpcClient client;

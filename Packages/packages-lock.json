@@ -1,13 +1,12 @@
 {
   "dependencies": {
     "com.lachee.discordrpc": {
-      "version": "https://github.com/Lachee/discord-rpc-unity.git",
+      "version": "file:com.lachee.discordrpc",
       "depth": 0,
-      "source": "git",
+      "source": "embedded",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.0.3"
-      },
-      "hash": "791aa95d2aecac9de423aa260f1f569755308a93"
+      }
     },
     "com.unity.2d.animation": {
       "version": "10.2.3",

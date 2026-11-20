@@ -1,4 +1,4 @@
-# Burger Jumper
+# [Burger Jumper](https://burntburgerstudios.com/)
 ## What is Burger Jumper?
 Burger Jumper is a simple, fun 2D game made with Unity. It is free to play in your browser and open source on GitHub.
 

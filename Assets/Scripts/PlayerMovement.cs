@@ -5,7 +5,9 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float speed = 5f;
-    public float jumpForce = 500f;
+    public float jumpSpeed = 12f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
 
     [Header("Respawn")]
     public float fallLimit = -10f;
@@ -16,14 +18,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 startPos;
     bool isGrounded;
 
-        void Awake()
-        {
-            rb = GetComponent<Rigidbody2D>();
-            anim = GetComponent<Animator>();
-            sr = GetComponent<SpriteRenderer>();
-            startPos = transform.position;
-            GetComponent<Collider2D>().sharedMaterial = new PhysicsMaterial2D { friction = 0f, bounciness = 0f };
-        }
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        startPos = transform.position;
+        GetComponent<Collider2D>().sharedMaterial = new PhysicsMaterial2D { friction = 0f, bounciness = 0f };
+    }
 
     void Update()
     {
@@ -35,13 +37,25 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(x * speed, rb.linearVelocity.y);
+        Vector2 v = rb.linearVelocity;
+        v.x = x * speed;
+
+        float g = Physics2D.gravity.y * rb.gravityScale * Time.fixedDeltaTime;
+        if (v.y < 0) v.y += g * (fallMultiplier - 1f);
+        else if (v.y > 0 && !Input.GetKey(KeyCode.Space)) v.y += g * (lowJumpMultiplier - 1f);
+
+        rb.linearVelocity = v;
+
+        isGrounded = false;
     }
 
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpSpeed);
+            isGrounded = false;
+        }
     }
 
     void UpdateAnimator()
@@ -65,6 +79,4 @@ public class PlayerMovement : MonoBehaviour
         foreach (ContactPoint2D contact in col.contacts)
             if (contact.normal.y > 0.5f) isGrounded = true;
     }
-
-    void OnCollisionExit2D(Collision2D col) => isGrounded = false;
 }

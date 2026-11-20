@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] TMP_Dropdown levelDropdown;
-    [SerializeField] string[] levelScenes; // same order as dropdown options
+    [SerializeField] string[] levelScenes; 
+    [SerializeField] string mainMenuScene = "MainMenu"; 
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != mainMenuScene)
+            SceneManager.LoadScene(mainMenuScene);
+    }
 
     public void Play() => SceneManager.LoadScene(levelScenes[levelDropdown.value]);
 

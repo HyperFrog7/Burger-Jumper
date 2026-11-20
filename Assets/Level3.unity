@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 1461273017}
   - component: {fileID: 1461273016}
   - component: {fileID: 1461273015}
-  - component: {fileID: 1461273014}
+  - component: {fileID: 1461273018}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
@@ -824,21 +824,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1461273014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461273013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36fbdad1a87c6c14bb777db5ef3120cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: You Win! Time for level 3...
-  nextScene: Level3
-  seconds: 2
 --- !u!61 &1461273015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -955,6 +940,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1461273018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461273013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87d21590562af94282ea870bb73b144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: You Win! Time for level 4...
+  nextScene: Level4
+  seconds: 2
 --- !u!1 &1652116914
 GameObject:
   m_ObjectHideFlags: 0

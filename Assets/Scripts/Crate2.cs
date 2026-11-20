@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Crate : MonoBehaviour
+public class Crate2 : MonoBehaviour
 {
-    public string message = "You Win! Time for level 2...";
-    public string nextScene = "Level2";
+    public string message = "You Win! Time for level 3...";
+    public string nextScene = "Level3";
     public float seconds = 2f;
 
     bool show;

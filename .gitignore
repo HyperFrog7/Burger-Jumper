@@ -72,3 +72,7 @@ crashlytics-build.properties
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Asset Store pack: redistribution not allowed, do not commit
+/Assets/Art/2D Mega Pack/
+/Assets/Art/2D Mega Pack.meta

@@ -29,7 +29,7 @@ The current release is **0.1.5**.
 
 ### Requirements
 
-- Unity **6000.0.85f2** (Unity 6). Install this exact version through Unity Hub.
+- Unity **6000.6.10f1** (Unity 6). Install this exact version through Unity Hub.
 - Git.
 - Optional: the WebGL Build Support module if you want to build for the browser.
 
@@ -43,12 +43,14 @@ The current release is **0.1.5**.
    ```
 
 2. In Unity Hub, choose **Add → Add project from disk** and select this folder.
-3. Open the project with **6000.0.85f2**. Package dependencies are resolved automatically from `Packages/manifest.json`.
+3. Open the project with **6000.6.10f1**. Package dependencies are resolved automatically from `Packages/manifest.json`.
 4. Open `Assets/MainMenu.unity` from the Project window and press **Play**.
 
 The first import takes a few minutes. `Library/`, `Temp/`, and build output folders are generated locally and ignored by Git.
 
 > Opening the project with a newer Unity version upgrades `ProjectSettings` and rewrites scenes. If you need to do that, use a throwaway branch and leave the upgrade out of pull requests.
+
+> **Note on the Free 2D Mega Pack:** The [Free 2D Mega Pack](https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430) by Brackeys is not included in this repository. It is licensed under the standard Unity Asset Store EULA, which does not allow redistributing the asset files, including in a public repository. The pack is still used by the game, and the official builds (itch.io, Windows and web releases) include it, which the license permits. If you clone this repository, scenes and prefabs that use the pack will show missing sprites until you download the pack from the Asset Store and import it through the Package Manager (**My Assets**). The sprites should then relink on their own.
 
 ## Build
 

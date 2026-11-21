@@ -4,7 +4,7 @@ A simple, fast 2D platformer made with Unity. You play as a burger, jump across 
 
 Free to play in your browser, with a Windows build available, and open source under the MIT license.
 
-[Play in browser](https://burntburgerstudios.itch.io/burger-jumper) · [Download for Windows](https://github.com/burntburgerstudios/Burger-Jumper/releases/download/0.1.5/Windows.0.1.5.rar) · [Website](https://burntburgerstudios.com/) · [Source](https://github.com/burntburgerstudios/Burger-Jumper)
+[Play in browser](https://burntburgerstudios.itch.io/burger-jumper) · [Download for Windows](https://github.com/burntburgerstudios/Burger-Jumper/releases/download/0.1.8-Patch/Windows.0.1.8-Patch.rar) · [Website](https://burntburgerstudios.com/) · [Source](https://github.com/burntburgerstudios/Burger-Jumper)
 
 ## Controls
 
@@ -19,11 +19,11 @@ Falling below the level respawns you at the start. Reach the crate to move on to
 
 ## Play
 
-The current release is **0.1.5**.
+The current release is **0.1.8-Patch**.
 
 - **Browser:** [burntburgerstudios.itch.io/burger-jumper](https://burntburgerstudios.itch.io/burger-jumper)
-- **Windows:** [Windows.0.1.5.rar](https://github.com/burntburgerstudios/Burger-Jumper/releases/download/0.1.5/Windows.0.1.5.rar), or the [release page](https://github.com/burntburgerstudios/Burger-Jumper/releases/tag/0.1.5)
-- **Web build:** download `Web.0.1.5.rar` from the release page and serve the extracted folder over HTTP. Opening `index.html` directly from disk will not work because the build loads Brotli-compressed assets.
+- **Windows:** [Windows.0.1.8-Patch.rar](https://github.com/burntburgerstudios/Burger-Jumper/releases/download/0.1.8-Patch/Windows.0.1.8-Patch.rar), or the [release page](https://github.com/burntburgerstudios/Burger-Jumper/releases/tag/0.1.8-Patch)
+- **Web build:** download `Web.0.1.8-Patch.zip` from the release page and serve the extracted folder over HTTP. Opening `index.html` directly from disk will not work because the build loads Brotli-compressed assets.
 
 ## Run the project locally
 
@@ -59,7 +59,7 @@ The first import takes a few minutes. `Library/`, `Temp/`, and build output fold
 3. Select the existing **New Web Profile** in `Assets/Settings/Build Profiles`, or create a desktop profile.
 4. Build.
 
-`MainMenu` and `Level1` through `Level5` are already enabled in Build Settings.
+`MainMenu` and `Level1` through `Level6` are already enabled in Build Settings.
 
 ## Project structure
 

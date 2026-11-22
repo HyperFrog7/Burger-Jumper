@@ -366,6 +366,9 @@ MonoBehaviour:
     - m_Text: Level 6
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
+    - m_Text: Level 7
+      m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1807,6 +1810,7 @@ MonoBehaviour:
   - Level4
   - Level5
   - Level6
+  - Level7
   mainMenuScene: MainMenu
 --- !u!4 &1692584054
 Transform:

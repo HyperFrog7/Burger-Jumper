@@ -311,7 +311,7 @@ MonoBehaviour:
   jumpSpeed: 12
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
-  fallLimit: -10
+  fallLimit: -61.08
 --- !u!1 &287734476
 GameObject:
   m_ObjectHideFlags: 0

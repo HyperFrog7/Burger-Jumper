@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 212903454}
   - component: {fileID: 212903453}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Watermark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 1652116916}
   - component: {fileID: 1652116915}
   m_Layer: 0
-  m_Name: BlueBackground
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

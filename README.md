@@ -29,7 +29,7 @@ The current release is **0.2.0-Beta**.
 
 ### Requirements
 
-- Unity **6000.6.10f1** (Unity 6.6). Install this exact version through Unity Hub.
+- Unity **7000.0.0 Alpha** (Unity 7.0 Alpha). Install this exact version through Unity Hub.
 - Git.
 - Optional: the WebGL Build Support module if you want to build for the browser.
 
@@ -43,7 +43,7 @@ The current release is **0.2.0-Beta**.
    ```
 
 2. In Unity Hub, choose **Add → Add project from disk** and select this folder.
-3. Open the project with **6000.6.10f1**. Package dependencies are resolved automatically from `Packages/manifest.json`.
+3. Open the project with **7000.0.0 Alpha**. Package dependencies are resolved automatically from `Packages/manifest.json`.
 4. Open `Assets/MainMenu.unity` from the Project window and press **Play**.
 
 The first import takes a few minutes. `Library/`, `Temp/`, and build output folders are generated locally and ignored by Git.

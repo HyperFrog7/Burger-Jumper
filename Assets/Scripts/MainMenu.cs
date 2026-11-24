@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class MainMenu : MonoBehaviour
         if (levelDropdown != null)
             levelDropdown.onValueChanged.AddListener(_ => AudioManager.Play(Sfx.Click));
 
-        foreach (Button b in FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        foreach (Button b in FindObjectsByType<Button>(FindObjectsInactive.Include))
         {
             b.onClick.AddListener(() => AudioManager.Play(Sfx.ButtonPress));
 
@@ -33,7 +34,7 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != mainMenuScene)
+        if (Keyboard.current?.escapeKey.wasPressedThisFrame == true && SceneManager.GetActiveScene().name != mainMenuScene)
             SceneManager.LoadScene(mainMenuScene);
     }
 

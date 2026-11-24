@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
 public class PlayerMovement : MonoBehaviour
@@ -18,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 startPos;
     bool isGrounded;
 
+    InputAction moveAction;
+    InputAction jumpAction;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +29,37 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         startPos = transform.position;
         GetComponent<Collider2D>().sharedMaterial = new PhysicsMaterial2D { friction = 0f, bounciness = 0f };
+
+        moveAction = new InputAction("Move", InputActionType.Value);
+        moveAction.AddCompositeBinding("1DAxis")
+            .With("Negative", "<Keyboard>/a")
+            .With("Positive", "<Keyboard>/d");
+        moveAction.AddCompositeBinding("1DAxis")
+            .With("Negative", "<Keyboard>/leftArrow")
+            .With("Positive", "<Keyboard>/rightArrow");
+        moveAction.AddBinding("<Gamepad>/leftStick/x");
+
+        jumpAction = new InputAction("Jump", InputActionType.Button);
+        jumpAction.AddBinding("<Keyboard>/space");
+        jumpAction.AddBinding("<Gamepad>/buttonSouth");
+    }
+
+    void OnEnable()
+    {
+        moveAction.Enable();
+        jumpAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        moveAction.Disable();
+        jumpAction.Disable();
+    }
+
+    void OnDestroy()
+    {
+        moveAction.Dispose();
+        jumpAction.Dispose();
     }
 
     void Start()
@@ -41,13 +76,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float x = Input.GetAxisRaw("Horizontal");
+        float x = moveAction.ReadValue<float>();
         Vector2 v = rb.linearVelocity;
         v.x = x * speed;
 
         float g = Physics2D.gravity.y * rb.gravityScale * Time.fixedDeltaTime;
         if (v.y < 0) v.y += g * (fallMultiplier - 1f);
-        else if (v.y > 0 && !Input.GetKey(KeyCode.Space)) v.y += g * (lowJumpMultiplier - 1f);
+        else if (v.y > 0 && !jumpAction.IsPressed()) v.y += g * (lowJumpMultiplier - 1f);
 
         rb.linearVelocity = v;
 
@@ -56,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (jumpAction.WasPressedThisFrame() && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpSpeed);
             isGrounded = false;

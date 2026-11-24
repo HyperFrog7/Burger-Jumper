@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Respawn")]
     public float fallLimit = -10f;
-
+    public float respawnSoundDelay = 0.5f;
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         startPos = transform.position;
         GetComponent<Collider2D>().sharedMaterial = new PhysicsMaterial2D { friction = 0f, bounciness = 0f };
+    }
+
+    void Start()
+    {
+        AudioManager.Play(Sfx.Spawn);
     }
 
     void Update()
@@ -55,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpSpeed);
             isGrounded = false;
+            AudioManager.Play(Sfx.Whoosh);
         }
     }
 
@@ -70,6 +76,10 @@ public class PlayerMovement : MonoBehaviour
     void CheckFall()
     {
         if (transform.position.y >= fallLimit) return;
+
+        AudioManager.Play(Sfx.DeathVoice);
+        AudioManager.Play(Sfx.Respawn, respawnSoundDelay);
+
         transform.position = startPos;
         rb.linearVelocity = Vector2.zero;
     }
